@@ -112,11 +112,9 @@ Mutation: {
       throw new AuthenticationError('You need to be logged in!');
 },
 updateComment: async (parent, { id, commentBody }) => {
-  // Find and update the matching comment using the destructured args
   return await Comment.findOneAndUpdate(
     { _id: id }, 
     { commentBody },
-    // Return the newly updated object instead of the original
     { new: true }
   );
 }
