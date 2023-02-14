@@ -43,7 +43,9 @@ type Mutation {
     addPost(postText: String): Post
     addComment(postId: ID!, commentBody: String!): Post
     addReview(postId: ID!, reviews: Float!): Post
-
+    removePost(postId: ID!): Post
+    removeComment(postId: ID!, commentId: ID!): Post
+    updatePost(postid: ID!, postText: String!): Post
 }
 `
 // need to find a way to store image, use moter
