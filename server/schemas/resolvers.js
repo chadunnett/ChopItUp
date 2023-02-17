@@ -123,6 +123,8 @@ updateComment: async (parent, { id, commentBody }) => {
 }
 
 
+module.exports = resolvers;
+
 
 
 

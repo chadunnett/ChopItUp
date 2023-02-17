@@ -34,7 +34,7 @@ me: User
 users: [User]
 user(username: String!): User
 posts(username: String): [Post]
-post(_id: ID!): Thought
+post(_id: ID!): Post
 }
 
 type Mutation {
@@ -48,5 +48,6 @@ type Mutation {
     updateComment(postid: ID!, postText: String!): Post
 }
 `
-// need to find a way to store image, use moter
-//grid fs in mongodb
+
+module.exports = typeDefs;
+
