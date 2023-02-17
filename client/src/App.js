@@ -6,6 +6,11 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from 'react-bootstrap/Col';
+import { useState } from "react";
+import Row from 'react-bootstrap/Row';
+import InputGroup from 'react-bootstrap/InputGroup';
+
+
 
 import "./App.css";
 import Home from "./views/Home";
@@ -70,8 +75,7 @@ function Profile() {
   );
 }
 
-function SignUp() 
-  function ChopItUp() {
+function SignUp()  {
     const [validated, setValidated] = useState(false);
   
     const handleSubmit = (event) => {
