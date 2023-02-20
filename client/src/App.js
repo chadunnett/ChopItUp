@@ -3,25 +3,61 @@ import { Routes, Route, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Col from 'react-bootstrap/Col';
-import { useState } from "react";
-import Row from 'react-bootstrap/Row';
-import InputGroup from 'react-bootstrap/InputGroup';
-
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+//import Col from 'react-bootstrap/Col';
+//import { useState, useEffect } from "react";
+//import Row from 'react-bootstrap/Row';
+// import InputGroup from 'react-bootstrap/InputGroup';
+// import { useMutation } from '@apollo/client';
+// import { ADD_USER } from './utils/mutations';
+import SignupForm from "./components/SignupForm";
 import "./App.css";
 import Home from "./views/Home";
+import LoginForm from "./components/LoginForm";
+import PostForm from "./components/PostForm";
+
 import Login from "./views/Login";
 import Layout from "./views/Layout";
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('id_token');
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 export default function App() {
   return (
+    <ApolloProvider client={client}>
     <Container>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<LoginForm />} />
+          <Route path="signup" element={<SignupForm />} />
+          <Route path="addpost" element={<PostForm/>} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
@@ -30,6 +66,7 @@ export default function App() {
         </Route>
       </Routes>
     </Container>
+    </ApolloProvider>
   );
 }
 

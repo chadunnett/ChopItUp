@@ -66,6 +66,7 @@ const profiles = [
 
 const profileItems = profiles.map((item, index) =>
   <Col key={index}><ProfileCard name={item.name} comment={item.comment} image={item.image}  /></Col>
+
 );
 
 class Home extends React.Component {
