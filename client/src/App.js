@@ -21,6 +21,8 @@ import { setContext } from '@apollo/client/link/context';
 import SignupForm from "./components/SignupForm";
 import "./App.css";
 import Home from "./views/Home";
+import LoginForm from "./components/LoginForm";
+import PostForm from "./components/PostForm";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -52,8 +54,9 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<LoginForm />} />
           <Route path="signup" element={<SignupForm />} />
+          <Route path="addpost" element={<PostForm/>} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
@@ -106,30 +109,30 @@ function Profile() {
   );
 }
 
-function Login() {
-  return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+// function Login() {
+//   return (
+//     <Form>
+//       <Form.Group className="mb-3" controlId="formBasicEmail">
+//         <Form.Label>Email address</Form.Label>
+//         <Form.Control type="email" placeholder="Enter email" />
+//         <Form.Text className="text-muted">
+//           We'll never share your email with anyone else.
+//         </Form.Text>
+//       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-  );
-}
+//       <Form.Group className="mb-3" controlId="formBasicPassword">
+//         <Form.Label>Password</Form.Label>
+//         <Form.Control type="password" placeholder="Password" />
+//       </Form.Group>
+//       <Form.Group className="mb-3" controlId="formBasicCheckbox">
+//         <Form.Check type="checkbox" label="Check me out" />
+//       </Form.Group>
+//       <Button variant="primary" type="submit">
+//         Submit
+//       </Button>
+//     </Form>
+//   );
+// }
 
 function NoMatch() {
   return (
