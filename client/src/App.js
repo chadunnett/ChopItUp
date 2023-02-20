@@ -10,8 +10,8 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 //import Col from 'react-bootstrap/Col';
 //import { useState, useEffect } from "react";
 //import Row from 'react-bootstrap/Row';
@@ -23,19 +23,21 @@ import "./App.css";
 import Home from "./views/Home";
 import LoginForm from "./components/LoginForm";
 import PostForm from "./components/PostForm";
+import AuthService from './utils/auth';
+
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -49,22 +51,22 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-    <Container>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="login" element={<LoginForm />} />
-          <Route path="signup" element={<SignupForm />} />
-          <Route path="addpost" element={<PostForm/>} />
+      <Container>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="login" element={<LoginForm />} />
+            <Route path="signup" element={<SignupForm />} />
+            <Route path="addpost" element={<PostForm />} />
 
-          {/* Using path="*"" means "match anything", so this route
+            {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
                 routes for. */}
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
-    </Container>
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+      </Container>
     </ApolloProvider>
   );
 }
@@ -77,18 +79,26 @@ function Layout() {
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            ChopItUp
+            CHOPITUP
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/profile">
               Profile
             </Nav.Link>
+
             <Nav.Link as={Link} to="/login">
               Login
             </Nav.Link>
             <Nav.Link as={Link} to="/signup">
               Sign Up
             </Nav.Link>
+          </Nav>
+          <Nav>
+            {AuthService.loggedIn() && (
+              <Nav.Link as={Link} to="/addpost" className="btn btn-outline-success">
+                Add Post
+              </Nav.Link>
+            )}
           </Nav>
         </Container>
       </Navbar>
@@ -108,31 +118,6 @@ function Profile() {
     </div>
   );
 }
-
-// function Login() {
-//   return (
-//     <Form>
-//       <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>Email address</Form.Label>
-//         <Form.Control type="email" placeholder="Enter email" />
-//         <Form.Text className="text-muted">
-//           We'll never share your email with anyone else.
-//         </Form.Text>
-//       </Form.Group>
-
-//       <Form.Group className="mb-3" controlId="formBasicPassword">
-//         <Form.Label>Password</Form.Label>
-//         <Form.Control type="password" placeholder="Password" />
-//       </Form.Group>
-//       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-//         <Form.Check type="checkbox" label="Check me out" />
-//       </Form.Group>
-//       <Button variant="primary" type="submit">
-//         Submit
-//       </Button>
-//     </Form>
-//   );
-// }
 
 function NoMatch() {
   return (
