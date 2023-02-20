@@ -24,4 +24,4 @@ The main motivation of was to develop a Note Taker that can be used to write and
 The code has an MIT License.
 
 ## CREDITS:
-UMN Bootcamp Tutoring Staff, https://devcenter.heroku.com/categories/reference, http://expressjs.com/en/api.html#path-examples, https://www.npmjs.com/package/uuid, https://nodejs.org/api/fs.html
+UMN Bootcamp Tutoring Staff
