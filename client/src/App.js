@@ -3,8 +3,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -12,12 +11,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-//import Col from 'react-bootstrap/Col';
-//import { useState, useEffect } from "react";
-//import Row from 'react-bootstrap/Row';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from './utils/mutations';
 import SignupForm from "./components/SignupForm";
 import "./App.css";
 import Home from "./views/Home";
@@ -27,7 +20,7 @@ import AuthService from './utils/auth';
 
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {

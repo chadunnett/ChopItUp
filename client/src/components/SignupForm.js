@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -29,7 +29,7 @@ function SignupForm()  {
       } else {
         setShowAlert(false);
       }
-    }, [error]);
+    }, [error,showAlert]);
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;
