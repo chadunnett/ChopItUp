@@ -18,7 +18,8 @@ import "./App.css";
 import Home from "./views/Home";
 import LoginForm from "./components/LoginForm";
 import PostForm from "./components/PostForm";
-//import AuthService from './utils/auth';
+import Auth from './utils/auth';
+import Profile from './views/Profile'
 
 
 //import Login from "./views/Login";
@@ -70,13 +71,6 @@ export default function App() {
 }
 
 
-function Profile() {
-  return (
-    <div>
-      <h2>Profile</h2>
-    </div>
-  );
-}
 
 
 function NoMatch() {
