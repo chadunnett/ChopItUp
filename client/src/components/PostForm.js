@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../utils/mutations';
-import { QUERY_POSTS, QUERY_ME } from '../utils/queries';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useMutation } from "@apollo/client";
+import { ADD_POST } from "../utils/mutations";
+import { QUERY_POSTS, QUERY_ME } from "../utils/queries";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const PostForm = () => {
-  const [postText, setText] = useState('');
+  const [postText, setText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
   const [addPost] = useMutation(ADD_POST, {
     update(cache, { data: { addPost } }) {
-
       try {
         const { me } = cache.readQuery({ query: QUERY_ME });
         cache.writeQuery({
@@ -21,22 +20,21 @@ const PostForm = () => {
           data: { me: { ...me, posts: [...me.posts, addPost] } },
         });
       } catch (e) {
-        console.warn("First post insertion by user!")
+        console.warn("First post insertion by user!");
       }
 
       const { posts } = cache.readQuery({ query: QUERY_POSTS });
-      console.log(posts)
+      console.log(posts);
       cache.writeQuery({
         query: QUERY_POSTS,
         data: { posts: [addPost, ...posts] },
       });
-    }
-  })
+    },
+  });
 
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
       setText(event.target.value);
-
     }
   };
 
@@ -47,8 +45,8 @@ const PostForm = () => {
       const response = fetch("/image-upload", {
         method: "POST",
         body: {
-          image: selectedImage
-        }
+          image: selectedImage,
+        },
       });
       console.log(response);
 
@@ -58,7 +56,7 @@ const PostForm = () => {
         variables: { postText, imageUrl },
       });
 
-      setText('');
+      setText("");
     } catch (e) {
       console.error(e);
     }
@@ -90,14 +88,13 @@ const PostForm = () => {
             placeholder="Here's a new thought..."
             value={postText}
             className="form-input col-12 col-md-9"
-            onChange={handleChange} />
+            onChange={handleChange}
+          />
         </Form.Group>
 
-        <Button type="submit">
-          Submit
-        </Button>
+        <Button type="submit">Submit</Button>
       </Form>
-    </div >
+    </div>
   );
 };
 
