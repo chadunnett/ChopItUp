@@ -10,12 +10,12 @@ class ProfileCard extends React.Component {
                 <Card.Img variant="top" src={this.props.image} />
                 <Card.Body>
                     <Card.Title>
-                        {this.props.name}
+                        {this.props.userName}
                     </Card.Title>
                     <Card.Text>
                         {this.props.comment}
                     </Card.Text>
-                    <Button as={Link} to="profile" variant="primary">See More</Button>
+                    <Button as={Link} to={this.props.link} variant="primary">See More</Button>
                 </Card.Body>
             </Card >
         )

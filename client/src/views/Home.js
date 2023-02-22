@@ -12,54 +12,61 @@ import food5 from '../img/pic5.jpg';
 import food6 from '../img/pic6.jpg';
 
 
-
-
 // const profiles = await fetch('/api/profiles');
 
 const profiles = [
   {
-    name: "Derek Helgoe",
+    _id: 1,
+    userName: "Derek Helgoe",
     comment: "Love It",
-    image: food1,
-    rating: 5,
-    id: 1
+
+    image: food1
+
+
+
   },
   {
-    name: "Charlie Dunnet",
+    _id: 2,
+    userName: "Charlie Dunnet",
     comment: "Can I try?",
-    image: food2,
-    rating: 3,
-    id: 2
+
+    image: food2
+
   },
   {
-    name: "Carlos Smith",
+    _id: 3,
+    userName: "Carlos Smith",
     comment: "OMG",
-    image: food3,
-    rating: 5,
-    id: 3
+
+    image: food3
   },
   {
-    name: "Katie Redford",
+    _id: 4,
+    userName: "Katie Redford",
     comment: "Oh yeeeeaaah",
-    image: food4,
-    rating: 5,
-    id: 4
+    image: food4
 
   },
 
   {
-    name: "Nathan Darter ",
+    _id: 5,
+    userName: "Nathan Darter ",
     comment: "woow",
-    image: food5,
-    rating: 4,
-    id: 5
+
+    image: food5
+  },
+  {
+    _id: 6,
+    userName: "Akon abazary",
+    comment: "coolio",
+    image: food6
+
   },
   {
     name: "Akon Abazary",
     comment: "coolio",
     image: food6,
-    rating: 5,
-    id: 6
+
   }
 
 ];
