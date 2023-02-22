@@ -4,36 +4,73 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProfileCard from '../components/ProfileCard';
 
-import { useQuery, gql } from '@apollo/client';
+import food1 from '../img/pic1.jpg';
+import food2 from '../img/pic2.jpg';
+import food3 from '../img/pic3.jpg';
+import food4 from '../img/pic4.jpg';
+import food5 from '../img/pic5.jpg';
+import food6 from '../img/pic6.jpg';
 
-const POST_QUERY = gql`
+
+
+// const profiles = await fetch('/api/profiles');
+
+const profiles = [
   {
-    posts {
-      _id
-      username
-      postText
-      image
-    }
+    name: "Derek Helgoe",
+    comment: "Love It",
+    image: food1,
+    rating: 5,
+  },
+  {
+    name: "Charlie Dunnet",
+    comment: "Can I try?",
+    image: food2,
+    rating: 3
+  },
+  {
+    name: "Carlos Smith",
+    comment: "OMG",
+    image: food3,
+    rating: 5
+  },
+  {
+    name: "Katie Redford",
+    comment: "Oh yeeeeaaah",
+    image: food4,
+    rating: 5
+  },
+
+  {
+    name: "Nathan Darter ",
+    comment: "woow",
+    image: food5,
+    rating: 4
+  },
+  {
+    name: "Akon abazary",
+    comment: "coolio",
+    image: food6,
+    rating: 5
   }
-`;
 
-const Home = () => {
+];
 
-  const { data } = useQuery(POST_QUERY);
+const profileItems = profiles.map((item) =>
+  <Col><ProfileCard name={item.name} comment={item.comment} image={item.image} /></Col>
+);
 
-  return (
-    <Container>
-      {data && (
+class Home extends React.Component {
+
+  render() {
+    return (
+      <Container>
         <Row xs={3} md={3} lg={3}>
-          {data.map((item) => (
-            <Col key={item._id}>
-              <ProfileCard key={item.name} name={item.username} comment={item.postText} image={item.image} />
-            </Col>
-          ))}
+          {profileItems}
         </Row>
-      )}
-    </Container>
-  );
+      </Container>
+    )
+  }
 }
 
 export default Home;
