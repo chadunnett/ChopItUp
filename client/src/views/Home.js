@@ -22,44 +22,52 @@ const profiles = [
     comment: "Love It",
     image: food1,
     rating: 5,
+    id: 1
   },
   {
     name: "Charlie Dunnet",
     comment: "Can I try?",
     image: food2,
-    rating: 3
+    rating: 3,
+    id: 2
   },
   {
     name: "Carlos Smith",
     comment: "OMG",
     image: food3,
-    rating: 5
+    rating: 5,
+    id: 3
   },
   {
     name: "Katie Redford",
     comment: "Oh yeeeeaaah",
     image: food4,
-    rating: 5
+    rating: 5,
+    id: 4
+
   },
 
   {
     name: "Nathan Darter ",
     comment: "woow",
     image: food5,
-    rating: 4
+    rating: 4,
+    id: 5
   },
   {
-    name: "Akon abazary",
+    name: "Akon Abazary",
     comment: "coolio",
     image: food6,
-    rating: 5
+    rating: 5,
+    id: 6
   }
 
 ];
 
-const profileItems = profiles.map((item, index) =>
-  <Col key={index} ><ProfileCard key={item.name}name={item.name} comment={item.comment} image={item.image} /></Col>
+const profileItems = profiles.map((item) =>
+  <Col key={item._id} ><ProfileCard key={item.name}name={item.name} comment={item.comment} image={item.image} /></Col>
 );
+
 
 class Home extends React.Component {
 
