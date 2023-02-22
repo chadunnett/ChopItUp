@@ -63,7 +63,8 @@ const profiles = [
 
   },
   {
-    name: "Akon Abazary",
+    _id: 7,
+    userName: "Akon Abazary",
     comment: "coolio",
     image: food6,
 
@@ -72,7 +73,7 @@ const profiles = [
 ];
 
 const profileItems = profiles.map((item) =>
-  <Col key={item._id} ><ProfileCard key={item.name}name={item.name} comment={item.comment} image={item.image} /></Col>
+  <Col key={item._id} ><ProfileCard key={item.userName}name={item.userName} comment={item.comment} image={item.image} /></Col>
 );
 
 
