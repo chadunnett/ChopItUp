@@ -20,11 +20,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-//image upload API
-app.get("/", (request, response) => {
-  console.log (request);
-  response.json({ message: "Hey! This is your server response!" });
-});
 
 // image upload API
 app.post("/image-upload", (request, response) => {
