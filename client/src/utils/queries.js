@@ -43,7 +43,7 @@ export const QUERY_USER = gql`
       username
       email
     
-      posts {
+      post {
         _id
         postText
         createdAt
@@ -64,7 +64,7 @@ export const QUERY_USERS = gql`
       username
       email
     
-      posts {
+      post {
         _id
         postText
         createdAt
@@ -85,7 +85,7 @@ export const QUERY_ME = gql`
       username
       email
     
-      posts {
+      post {
         _id
         postText
         createdAt
