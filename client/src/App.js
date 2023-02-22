@@ -1,9 +1,8 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import Profile from "./views/Profile"
 
-//import Nav from "react-bootstrap/Nav";
-//import Navbar from "react-bootstrap/Navbar";
 
 
 import {
@@ -18,10 +17,9 @@ import "./App.css";
 import Home from "./views/Home";
 import LoginForm from "./components/LoginForm";
 import PostForm from "./components/PostForm";
+
 //import AuthService from './utils/auth';
 
-
-//import Login from "./views/Login";
 import Layout from "./views/Layout";
 
 const httpLink = createHttpLink({
@@ -31,6 +29,7 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem("id_token");
+  console.log(token)
   // return the headers to the context so httpLink can read them
   return {
     headers: {
@@ -69,14 +68,6 @@ export default function App() {
   );
 }
 
-
-function Profile() {
-  return (
-    <div>
-      <h2>Profile</h2>
-    </div>
-  );
-}
 
 
 function NoMatch() {

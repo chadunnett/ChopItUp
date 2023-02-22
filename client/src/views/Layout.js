@@ -22,7 +22,13 @@ const Navigation = () => {
                     <Nav.Link as={Link} to="/signup">
                         Sign Up
                     </Nav.Link>
+                
                 </Nav>
+                <Nav.Link as={Link} to="/addPost">
+                        Add Post
+                    </Nav.Link>
+                
+                
             </Container>
         </Navbar >
     )
