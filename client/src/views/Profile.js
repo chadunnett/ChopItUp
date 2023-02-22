@@ -3,6 +3,7 @@ import Auth from '../utils/auth';
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
     const { username: userParam } = useParams();
@@ -38,7 +39,24 @@ const Profile = (props) => {
           </div>
           <div className="flex-row justify-space-between mb-3">
             <div className="col-12 mb-3 col-lg-8">
-              posts
+            <div>
+      <h3>{props.title}</h3>
+      {props.posts &&
+        props.posts.map(post => (
+          <div key={post._id} className="card mb-3">
+            <p className="card-header">
+              <Link
+                to={`/profile/${post.username}`}
+                style={{ fontWeight: 700 }}
+                className="text-light"
+              >
+                {post.username}
+              </Link>{' '}
+              thought on {post.createdAt}
+            </p>
+          </div>
+        ))}
+    </div>
             </div>
     
           </div>
