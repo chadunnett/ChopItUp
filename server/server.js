@@ -29,7 +29,7 @@ app.post("/image-upload", (request, response) => {
     }
 
     // upload image here
-    cloudinary.uploader.upload(data.image)
+    uploader.upload(data.image)
     .then((result) => {
       response.status(200).send({
         message: "success",
