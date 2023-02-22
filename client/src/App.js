@@ -2,8 +2,8 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+//import Nav from "react-bootstrap/Nav";
+//import Navbar from "react-bootstrap/Navbar";
 
 
 import {
@@ -18,10 +18,10 @@ import "./App.css";
 import Home from "./views/Home";
 import LoginForm from "./components/LoginForm";
 import PostForm from "./components/PostForm";
-import AuthService from './utils/auth';
+//import AuthService from './utils/auth';
 
 
-import Login from "./views/Login";
+//import Login from "./views/Login";
 import Layout from "./views/Layout";
 
 const httpLink = createHttpLink({
