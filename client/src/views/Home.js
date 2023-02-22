@@ -19,18 +19,25 @@ const profiles = [
     _id: 1,
     userName: "Derek Helgoe",
     comment: "Love It",
+
     image: food1
+
+
+
   },
   {
     _id: 2,
     userName: "Charlie Dunnet",
     comment: "Can I try?",
+
     image: food2
+
   },
   {
     _id: 3,
     userName: "Carlos Smith",
     comment: "OMG",
+
     image: food3
   },
   {
@@ -38,12 +45,14 @@ const profiles = [
     userName: "Katie Redford",
     comment: "Oh yeeeeaaah",
     image: food4
+
   },
 
   {
     _id: 5,
     userName: "Nathan Darter ",
     comment: "woow",
+
     image: food5
   },
   {
@@ -51,6 +60,13 @@ const profiles = [
     userName: "Akon abazary",
     comment: "coolio",
     image: food6
+
+  },
+  {
+    name: "Akon Abazary",
+    comment: "coolio",
+    image: food6,
+
   }
 
 ];
@@ -58,6 +74,7 @@ const profiles = [
 const profileItems = profiles.map((item) =>
   <Col key={item._id} ><ProfileCard key={item.name}name={item.name} comment={item.comment} image={item.image} /></Col>
 );
+
 
 class Home extends React.Component {
 
