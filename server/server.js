@@ -51,12 +51,12 @@ app.post("/image-upload", fileUpload.single('image'), function (req, res, next) 
   async function upload(req) {
     streamUpload(req)
       .then((result) => {
-        response.status(200).send({
+        res.status(200).send({
           message: "success",
           result,
         });
       }).catch((error) => {
-        response.status(500).send({
+        res.status(500).send({
           message: "failure",
           error,
         });
