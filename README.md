@@ -13,7 +13,7 @@
 3. A number of challenges were encountered during the development of the site especially with the amount of work needed to make it work that required alot of research back and forth. 
 
 ## MOTIVATION:
-The main motivation of was to develop a Note Taker that can be used to write and save notes that will aid my business processes.
+A user-friendly place for users to be able to post ad discuss about food and recipes they love
 
 ## LICENSES:
 The code has an MIT License.
