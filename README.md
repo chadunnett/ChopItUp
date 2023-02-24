@@ -22,6 +22,8 @@ The code has an MIT License.
 UMN Bootcamp Tutoring Staff
 
 ## LINKS:
-a) ![image info](./scrn.png)
+a) ![image info](./Screenshot (9).png)
+
 b) link to github repository (https://github.com/chadunnett/ChopItUp)
+
 c) Link to Heroku Deployment (https://boiling-cliffs-80161.herokuapp.com/)
